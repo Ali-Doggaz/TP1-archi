@@ -1,28 +1,19 @@
 package com.directi.training.srp.exercise;
 
-import java.util.Arrays;
 import java.util.List;
 
-public class CarManager
-{
-    private List<Car> _carsDb = Arrays
-        .asList(new Car("1", "Golf III", "Volkswagen"), new Car("2", "Multipla", "Fiat"),
-            new Car("3", "Megane", "Renault"));
+public class CarService {
+    private CarDb carDb;
 
-    public Car getFromDb(final String carId)
-    {
-        for (Car car : _carsDb) {
-            if (car.getId().equals(carId)) {
-                return car;
-            }
-        }
-        return null;
+    public CarService(CarDb carDb) {
+        this.carDb = carDb;
     }
 
     public String getCarsNames()
-    {
+    {   
+        List<Car> cars = carDb.getCars();
         StringBuilder sb = new StringBuilder();
-        for (Car car : _carsDb) {
+        for (Car car : cars) {
             sb.append(car.getBrand());
             sb.append(" ");
             sb.append(car.getModel());
@@ -32,13 +23,21 @@ public class CarManager
     }
 
     public Car getBestCar()
-    {
+    {   List<Car> cars = carDb.getCars();
         Car bestCar = null;
-        for (Car car : _carsDb) {
+        for (Car car : cars) {
             if (bestCar == null || car.getModel().compareTo(bestCar.getModel()) > 0) {
                 bestCar = car;
             }
         }
         return bestCar;
+    }
+    
+    // main method 
+    public static void main(String[] args) {
+        CarDb carDb = new CarDb();
+        CarService carService = new CarService(carDb);
+        System.out.println(carService.getCarsNames());
+        System.out.println(carService.getBestCar());
     }
 }

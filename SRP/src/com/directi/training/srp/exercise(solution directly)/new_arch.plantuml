@@ -1,6 +1,6 @@
 @startuml
 
-' Old Architecture
+' New Architecture
 class Car {
     - final String _id
     - final String _model
@@ -11,13 +11,20 @@ class Car {
     + getBrand(): String
 }
 
-class CarManager {
-    - List<Car> _carsDb
+class CarDb {
     + getFromDb(carId: String): Car
+    + getCars():List<Car> 
+}
+
+class CarService {
+    - CarDb CarDb
+    + CarService(CarDb: CarDb)
     + getCarsNames(): String
     + getBestCar(): Car
 }
 
-Car -- CarManager
+
+CarDb --> " *" Car
+CarService --> CarDb
 
 @enduml

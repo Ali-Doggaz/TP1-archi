@@ -1,6 +1,6 @@
 package com.directi.training.lsp.exercise.solution;
 
-public class Duck
+public class Duck implements IDuck
 {
     public void quack()
     {

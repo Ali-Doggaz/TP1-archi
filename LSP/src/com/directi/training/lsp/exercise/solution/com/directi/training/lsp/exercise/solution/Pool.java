@@ -6,7 +6,7 @@ public class Pool
 {
     public void run()
     {
-        List<Duck> ducks = new ArrayList<Duck>();
+        List<IDuck> ducks = new ArrayList<IDuck>();
         ducks.add(new Duck());
         ducks.add(new ElectronicDuck());
         
@@ -14,16 +14,16 @@ public class Pool
         swim(ducks);
     }
 
-    private void quack(List<Duck> ducks )
+    private void quack(List<IDuck> ducks )
     {
-        for (Duck duck : ducks) {
+        for (IDuck duck : ducks) {
             duck.quack();
         }
     }
 
-    private void swim(List<Duck> ducks )
+    private void swim(List<IDuck> ducks )
     {
-        for (Duck duck : ducks) {
+        for (IDuck duck : ducks) {
             duck.swim();
         }
     }

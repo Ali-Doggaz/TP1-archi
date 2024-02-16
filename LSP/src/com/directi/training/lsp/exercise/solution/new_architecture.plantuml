@@ -4,6 +4,13 @@
 ' NOTE: almost the same as the old one
 
 package "com.directi.training.lsp.exercise.solution" {
+
+
+    class IDuck {
+        +quack(): void
+        +swim(): void
+    }
+
     class Duck {
         +quack(): void
         +swim(): void
@@ -17,14 +24,15 @@ package "com.directi.training.lsp.exercise.solution" {
         +turnOff(): void
     }
 
-    Pool -- Duck
-    ElectronicDuck --|> Duck
-
-    class Pool {
+   class Pool {
         +run(): void
         -quack(ducks: List<Duck>): void
         -swim(ducks: List<Duck>): void
     }
+
+    ElectronicDuck --|> IDuck
+    Duck --|> IDuck
+    Pool --> "*" IDuck
 
 }
 @enduml

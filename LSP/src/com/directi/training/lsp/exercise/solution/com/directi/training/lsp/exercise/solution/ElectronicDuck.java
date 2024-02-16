@@ -1,6 +1,6 @@
 package com.directi.training.lsp.exercise.solution;
 
-public class ElectronicDuck extends Duck
+public class ElectronicDuck implements IDuck
 {
     private boolean _on = false;
 

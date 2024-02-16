@@ -22,7 +22,7 @@ public class Pool
         for (Duck duck : ducks) {
             duck.swim();
         }
-    }
+    } 
 
     public static void main(String[] args)
     {

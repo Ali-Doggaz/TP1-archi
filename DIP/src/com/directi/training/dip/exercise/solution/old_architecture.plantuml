@@ -16,7 +16,7 @@ package "com.directi.training.dip.exercise" {
         +write(inputString: String): int
     }
 
-    EncodingModuleClient --> EncodingModule : uses
-    EncodingModule --> MyDatabase : uses
+    EncodingModuleClient ..> EncodingModule : uses
+    EncodingModule ..> MyDatabase : uses
 }
 @enduml

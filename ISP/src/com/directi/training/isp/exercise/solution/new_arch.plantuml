@@ -1,0 +1,57 @@
+
+@startuml
+package "com.directi.training.isp.exercise" {
+    interface Door {
+        +lock(): void
+        +unlock(): void
+        +open(): void
+        +close(): void
+        +timeOutCallback(): void
+        +proximityCallback(): void
+    }
+
+    class SensingDoor implements Door, ISensingDoor {
+        -_locked: boolean
+        -_opened: boolean
+        +SensingDoor(sensor: Sensor): void
+        +lock(): void
+        +unlock(): void
+        +open(): void
+        +close(): void
+        +timeOutCallback(): void
+        +proximityCallback(): void
+    }
+
+    class Sensor {
+        +register(door: Door): void
+        -isPersonClose(): boolean
+    }
+
+    interface ITimedDoor {
+        +timeOutCallback(): void
+    }
+
+    interface ISensingDoor {
+        +proximityCallback(): void
+    }
+
+    class TimedDoor implements Door, ITimedDoor {
+        -_locked: boolean
+        -_opened: boolean
+        +TimedDoor(timer: Timer): void
+        +lock(): void
+        +unlock(): void
+        +open(): void
+        +close(): void
+        +timeOutCallback(): void
+        +proximityCallback(): void
+    }
+
+    class Timer {
+        +register(timeOut: long, door: Door): void
+    }
+
+    Sensor ..> "uses" ISensingDoor 
+    Timer ..> "uses" ITimedDoor
+}
+@enduml

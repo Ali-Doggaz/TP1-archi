@@ -24,6 +24,9 @@ public class Pool
     private void swim(List<IDuck> ducks )
     {
         for (IDuck duck : ducks) {
+            if (duck instanceof ElectronicDuck) {
+                ((ElectronicDuck)duck).turnOn();
+            }
             duck.swim();
         }
     }

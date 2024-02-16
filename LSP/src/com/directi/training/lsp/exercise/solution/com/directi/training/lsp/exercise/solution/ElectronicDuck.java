@@ -20,7 +20,7 @@ public class ElectronicDuck implements IDuck
     {
         if (_on) {
             System.out.println("Electronic duck swim");
-        } else {
+        } else {            
             System.out.println("Electronic duck can't swim when off...");
             // throw new RuntimeException("Can't swim when off");
         }

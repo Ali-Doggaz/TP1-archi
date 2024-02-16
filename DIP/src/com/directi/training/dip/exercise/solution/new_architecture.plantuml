@@ -1,0 +1,32 @@
+
+@startuml
+package "com.directi.training.dip.exercise.solution" {
+    interface Database {
+        +write(inputString: String): int
+    }
+
+    interface GeneralEncodingModule {
+        +encodeWithFiles(): void
+        +encodeBasedOnNetworkAndDatabase(): void
+    }
+
+    class MyDatabase implements Database {
+        -_data: Map<Integer, String>
+        -_count: int
+        +write(inputString: String): int
+    }
+
+    class EncodingModule implements GeneralEncodingModule {
+        -database: Database
+        +encodeWithFiles(): void
+        +encodeBasedOnNetworkAndDatabase(): void
+    }
+
+    class EncodingModuleClient {
+        +main(args: String[]): void
+    }
+
+    EncodingModuleClient --> GeneralEncodingModule : uses
+    EncodingModule --> Database : uses
+}
+@enduml

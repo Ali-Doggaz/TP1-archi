@@ -1,0 +1,22 @@
+
+@startuml
+package "com.directi.training.dip.exercise" {
+    class EncodingModule {
+        -encodeWithFiles(): void
+        -encodeBasedOnNetworkAndDatabase(): void
+    }
+
+    class EncodingModuleClient {
+        +main(args: String[]): void
+    }
+
+    class MyDatabase {
+        -_data: Map<Integer, String>
+        -_count: int
+        +write(inputString: String): int
+    }
+
+    EncodingModuleClient --> EncodingModule : uses
+    EncodingModule --> MyDatabase : uses
+}
+@enduml

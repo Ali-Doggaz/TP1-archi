@@ -1,0 +1,25 @@
+
+@startuml
+package "com.directi.training.lsp.exercise" {
+    class Duck {
+        +quack(): void
+        +swim(): void
+    }
+
+    class ElectronicDuck {
+        -_on: boolean
+        +quack(): void
+        +swim(): void
+        +turnOn(): void
+        +turnOff(): void
+    }
+
+    ElectronicDuck --|> Duck
+
+    class Pool {
+        +run(): void
+        -quack(ducks: Duck[]): void
+        -swim(ducks: Duck[]): void
+    }
+}
+@enduml

@@ -17,6 +17,6 @@ enum ResourceType {
     SPACE_SLOT
 }
 
-ResourceType -- ResourceAllocator
+ResourceAllocator -->  " uses" ResourceType
 
 @enduml

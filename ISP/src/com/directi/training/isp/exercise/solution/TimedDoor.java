@@ -43,10 +43,4 @@ public class TimedDoor implements Door, ITimedDoor
     {
         _locked = true;
     }
-
-    @Override
-    public void proximityCallback()
-    {
-        throw new Exception();
-    }
 }

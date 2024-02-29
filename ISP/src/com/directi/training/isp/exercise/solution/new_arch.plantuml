@@ -6,20 +6,12 @@ package "com.directi.training.isp.exercise" {
         +unlock(): void
         +open(): void
         +close(): void
-        +timeOutCallback(): void
-        +proximityCallback(): void
     }
 
     class SensingDoor implements Door, ISensingDoor {
         -_locked: boolean
         -_opened: boolean
         +SensingDoor(sensor: Sensor): void
-        +lock(): void
-        +unlock(): void
-        +open(): void
-        +close(): void
-        +timeOutCallback(): void
-        +proximityCallback(): void
     }
 
     class Sensor {
@@ -39,12 +31,6 @@ package "com.directi.training.isp.exercise" {
         -_locked: boolean
         -_opened: boolean
         +TimedDoor(timer: Timer): void
-        +lock(): void
-        +unlock(): void
-        +open(): void
-        +close(): void
-        +timeOutCallback(): void
-        +proximityCallback(): void
     }
 
     class Timer {

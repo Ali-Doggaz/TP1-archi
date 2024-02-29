@@ -1,7 +1,8 @@
 package com.directi.training.isp.exercise.solution;
 
 public interface Door
-{
+{   
+
     void lock();
 
     void unlock();
@@ -9,8 +10,4 @@ public interface Door
     void open();
 
     void close();
-
-    void timeOutCallback();
-
-    void proximityCallback();
 }
